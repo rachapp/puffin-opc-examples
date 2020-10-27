@@ -1,0 +1,53 @@
+! PUFFIN BEAM FILE
+!
+!Describes electron beams for input into puffin. Multiple beams with
+!different parameters can be used. Please refer to POP-REF for an
+!explanation of the scaled variables used, such as z2 and p2.
+!
+! BEAM PARAMETERS - namelist NBLIST
+!
+! nbeams - number of electron beams
+! dtype  - Input type - simple, distribution, or macroparticle 
+!
+! BEAM PARAMETERS - namelist BLIST
+!========================================================================
+! sSigmaE - gaussian std dev in each dimension - x, y, z2, px, py, gamma, then for additional beams
+! sLenE   - Total length of beam modelled in each dimension - x, y, z2, px, py, gamma...
+! bcenter - Center of beam in z2
+! iNumMPs  -  Number of macroparticles in each dimension used to model the beam 
+! emitx, emity - Scaled transverse beam emittance
+! sQe - Beam charge 
+! gammaf - Ratio of average beam energy to reference beam energy gamma / gamma_r 
+! chirp  - Energy chirp in z2 i.e. dgamma/dz2
+! mag    - magnitude of energy oscillation on beam
+! fr     - frequency in z2 of beam energy oscillation
+! qRndEj_G - Round edge of flat top?
+! sSigEj_G - Gaussian sigma of tail-off if used
+! qMatched_A - Automatically match beam to focusing channel??
+! TrLdMeth - Beam loading method in 5D transverse and energy planes:
+!                TrLdMeth = 1 for random sequences (default)
+!                TrLdMeth = 2 for Halton sequences
+!========================================================================
+
+&NBLIST
+nbeams = 1
+dtype = 'simple'
+/
+
+&BLIST
+sSigmaE =4.15331E-4, 4.15331E-4, 1.E8, 1.0, 1.0, 0.001
+sLenE = 2.491986E-3, 2.491986E-3, 0.4E-12, 1E-6, 1E-6, 0.007
+iMPsZ2PerWave=20
+emitx = 1.22639774e-7
+emity = 1.22639774e-7
+sQe = 100E-12
+bcenter = 0.0
+gammaf = 1.0
+chirp = 0.0
+mag = 0.0
+fr = 1.0
+qRndEj_G = .true.
+sSigEj_G = 0.1E-14
+qMatched_A = .false.
+TrLdMeth = 2
+/
