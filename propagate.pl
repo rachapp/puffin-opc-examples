@@ -1,6 +1,4 @@
 #!/usr/bin/perl
-#!/usr/bin/python
-
 # Library headers
 my $libdir;
 BEGIN {
@@ -25,7 +23,7 @@ use lib "$libdir";
 use Physics::OPC;
 $VERBOSE = 0;
 
-$field = field file => 'CEP_aperp_41_x.dfl';
+$field = field file => '6microns_aperp_41_x.dfl';
     
 $optics = optics "
     # 1st propagation
